@@ -81,3 +81,22 @@ elif selected=="Login" :
             st.warning("Go to Dashboard!")
         else:
             st.warning("Incorrect Username/Password")
+            task = st.selectbox("What would you like to do?", ["View Profile", "Edit Profile", "View Users"])
+            if task == "View Profile":
+                st.subheader("User Profile")
+                user_result = view_all_users()
+                clean_db = pd.DataFrame(user_result, columns=["Username", "Password"])
+                st.dataframe(clean_db[clean_db['Username'] == username])
+            elif task == "Edit Profile":
+                st.subheader("Edit Profile")
+                new_username = st.text_input("New Username", value=username)
+                new_password = st.text_input("New Password", type='password')
+                if st.button("Update Profile"):
+                    c.execute('UPDATE userstable SET username = ?, password = ? WHERE username = ?', (new_username, make_hashes(new_password), username))
+                    conn.commit()
+                    st.success("Profile Updated Successfully")
+            elif task == "View Users":
+                st.subheader("View All Users")
+                user_result = view_all_users()
+                clean_db = pd.DataFrame(user_result, columns=["Username", "Password"])
+                st.dataframe(clean_db)
