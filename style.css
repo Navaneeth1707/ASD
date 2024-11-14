@@ -1,0 +1,18 @@
+<!-- Input fields -->
+<input type="text" class="w-full p-3 border border-gray-300 rounded mt-1 mb-4 box-border" />
+<input type="email" class="w-full p-3 border border-gray-300 rounded mt-1 mb-4 box-border" />
+<textarea class="w-full p-3 border border-gray-300 rounded mt-1 mb-4 box-border resize-y"></textarea>
+
+<!-- Submit button -->
+<button type="submit" class="bg-green-600 text-white p-3 px-5 border-none rounded cursor-pointer hover:bg-green-700">
+  Submit
+</button>
+<!-- Bootstrap Input fields -->
+<input type="text" class="form-control mb-3" />
+<input type="email" class="form-control mb-3" />
+<textarea class="form-control mb-3"></textarea>
+
+<!-- Bootstrap Submit button -->
+<button type="submit" class="btn btn-success">
+  Submit
+</button>
